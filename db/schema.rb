@@ -11,17 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161002171140) do
+ActiveRecord::Schema.define(version: 20161004220719) do
+
+  create_table "answers", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "likes"
+    t.integer  "dislikes"
+    t.integer  "formal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "task_id"
+  end
+
+  add_index "answers", ["task_id"], name: "index_answers_on_task_id"
 
   create_table "tasks", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "pic_file_name"
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
+    t.integer  "likes",            default: 0
+    t.integer  "dislikes",         default: 0
   end
 
 end

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :tasks
+  resources :answers
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -55,17 +56,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   
-  root 'tasks#index'
-  get 'tasks/list'
-  get 'tasks/new'
-  get 'tasks/show'
-  get 'tasks/edit'
-  get 'tasks/create'
-  post 'tasks/create'
-  patch 'tasks/update'
-  patch '/task.:id/' => 'tasks#update' 
-  get 'tasks/update'
-  get 'tasks/destroy'
-  
+  root 'answers#index'
   
 end
