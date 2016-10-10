@@ -5,10 +5,17 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= yield :head %>
 </head>
-<body>
-
+<body class="<%= controller_name %> <%= action_name %>" >
+  <%= Gon::Base.render_data %>
+  <p>
+    <h1>Monolingo</h1>
+  </p>
 <%= yield %>
-
+<p>
+<a href="/pages/home">Home</a>
+<a href="/pages/admin">Admin</a>
+</p>
 </body>
 </html>

@@ -1,0 +1,11 @@
+console.log('loaded');
+console.log('gon.task_txt = ' + gon.task_txt);
+console.log('gon.task_img = ' + gon.task_img);
+sample_label = $('#sample_label');
+$('#input_field').onkeypress = function(e) {
+	
+	e = e || window.event;
+	if( e.preventDefault) e.preventDefault();
+	return false;
+}
+set_task_id(0);

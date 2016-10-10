@@ -18,6 +18,7 @@
         <td><%= task.body %></td>
         <td class="thumb"><%= image_tag task.pic.url, size:"100x100" %><td>
         <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Learn', learn_path(task) %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :tasks
-  resources :answers
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -56,6 +55,12 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   
-  root 'answers#index'
+  # root 'answers#index'
+  root "pages#show", page: "home"
+  get "/pages/:page" => "pages#show"
+  get "/learn/:id" => "tasks#learn", as: :learn
+  get "/learn" => "tasks#learn"
   
+  resources :tasks
+  resources :answers
 end

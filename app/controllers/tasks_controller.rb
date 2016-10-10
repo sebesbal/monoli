@@ -10,6 +10,7 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    @answers = @task.answers;
   end
 
   # GET /tasks/new
@@ -61,6 +62,25 @@ class TasksController < ApplicationController
       format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def learn
+    
+    puts "---------------------------------"
+    if params.has_key?(:id)
+      puts "has id"
+      @task = Task.find(params[:id])
+    else
+      puts "random id"
+      @task = Task.all.sample
+    end
+    @answers = @task.answers
+    gon.task_txt = @task.body
+    gon.task_img = @task.pic.url
+    
+    puts "id=" + @task.id.to_s
+    puts "rails tast_txt=" + @task.body
+    puts "rails tast_img=" + @task.pic.url
   end
 
   private
